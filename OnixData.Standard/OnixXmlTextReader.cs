@@ -7,6 +7,8 @@ namespace OnixData.Standard
     {
         public OnixXmlTextReader(string psXmlBody) : base(new StringReader(psXmlBody)) { }
 
+        public OnixXmlTextReader(Stream stream) : base(stream) { }
+
         public OnixXmlTextReader(FileInfo poFileInfo) : base(poFileInfo.FullName) { }
 
         public override string NamespaceURI
