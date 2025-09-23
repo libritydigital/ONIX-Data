@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Xml.Serialization;
 using OnixData.Standard.Version3.Publishing;
 
 namespace OnixData.Standard.Version3.Price
@@ -21,6 +22,8 @@ namespace OnixData.Standard.Version3.Price
         public const int CONST_PRICE_TYPE_FPT_BIL_EXCL_TAX = 32;
         public const int CONST_PRICE_TYPE_PROP_MISC_1      = 41;
         public const int CONST_PRICE_TYPE_PROP_MISC_2      = 99;
+
+        public const int CONST_PRICE_TYPE_QUALIFIER_CONSUMER = 5;
 
         public readonly int[] CONST_SOUGHT_RETAIL_PRICE_TYPES
             = {
@@ -302,6 +305,10 @@ namespace OnixData.Standard.Version3.Price
             set { this.territoryField = value; }
         }
 
+        public int PriceQualifier { get; set; }
+
+        public OnixPriceConstraint[] PriceConstraint { get; set; }
+
         #endregion
 
         #region Short Tags
@@ -362,6 +369,20 @@ namespace OnixData.Standard.Version3.Price
             get { return Territory; }
             set { Territory = value; }
         }
+
+        public int j261 
+        {
+            get => PriceQualifier;
+            set => PriceQualifier = value;
+        }
+
+        [XmlElement("priceconstraint")]
+        public OnixPriceConstraint[] priceconstraint
+        {
+            get => PriceConstraint;
+            set => PriceConstraint = value;
+        }
+
 
         #endregion
     }

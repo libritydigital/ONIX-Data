@@ -13,6 +13,12 @@ namespace OnixData.Standard.Version3
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class OnixDescriptiveDetail
     {
+        #region Constants
+
+        public const int CONST_TRADE_CATEGORY_LIBRARY_AUDIO = 06;
+
+        #endregion
+
         public OnixDescriptiveDetail()
         {
             ProductComposition = -1;
@@ -52,6 +58,7 @@ namespace OnixData.Standard.Version3
         private string   editionStatementField;
         private string   audienceCodeField;
         private string   countryOfManufactureField;
+        private int      tradeCategoryField;
 
         protected string epubTypeField;
         protected string epubTypeVersionField;
@@ -730,6 +737,12 @@ namespace OnixData.Standard.Version3
             set { this.countryOfManufactureField = value; }
         }
 
+        public int TradeCategory
+        {
+            get { return this.tradeCategoryField; }
+            set { this.tradeCategoryField = value; }
+        }
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("EditionType")]
         public string[] EditionType
@@ -934,6 +947,12 @@ namespace OnixData.Standard.Version3
         {
             get { return ProductPackaging; }
             set { ProductPackaging = value; }
+        }
+
+        public int b384
+        {
+            get { return tradeCategoryField; }
+            set { tradeCategoryField = value; }
         }
 
         public string b211

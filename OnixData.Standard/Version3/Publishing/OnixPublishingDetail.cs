@@ -12,10 +12,11 @@ namespace OnixData.Standard.Version3.Publishing
         {
             PublishingStatus = ROWSalesRightsType = "";
 
-            Imprint        = new OnixImprint[0];
-            Publisher      = new OnixPublisher[0];
-            PublishingDate = new OnixPubDate[0];
-            SalesRights    = new OnixSalesRights[0];
+            Imprint             = new OnixImprint[0];
+            Publisher           = new OnixPublisher[0];
+            PublishingDate      = new OnixPubDate[0];
+            SalesRights         = new OnixSalesRights[0];
+            CopyrightStatement  = new OnixCopyrightStatement[0];
 
             salesRightsList = null;
             notForSaleList  = null;
@@ -44,6 +45,9 @@ namespace OnixData.Standard.Version3.Publishing
 
         private OnixSalesRights[] salesRightsField;
         private OnixSalesRights[] shortSalesRightsField;
+
+        private OnixCopyrightStatement[] copyrightStatementField;
+        private OnixCopyrightStatement[] shortCopyrightStatementField;
 
         private List<string> salesRightsList;
         private List<string> notForSaleList;
@@ -155,6 +159,23 @@ namespace OnixData.Standard.Version3.Publishing
                 }
 
                 return SalesRights;
+            }
+        }
+
+        public OnixCopyrightStatement[] OnixCopyrightStatementList
+        {
+            get
+            {
+                OnixCopyrightStatement[] CopyrightStatements = null;
+
+                if (this.copyrightStatementField != null)
+                    CopyrightStatements = this.copyrightStatementField;
+                else if (this.shortCopyrightStatementField != null)
+                    CopyrightStatements = this.shortCopyrightStatementField;
+                else
+                    CopyrightStatements = new OnixCopyrightStatement[0];
+
+                return CopyrightStatements;
             }
         }
 
@@ -330,6 +351,14 @@ namespace OnixData.Standard.Version3.Publishing
             set { this.salesRightsField = value; }
         }
 
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("CopyrightStatement")]
+        public OnixCopyrightStatement[] CopyrightStatement
+        {
+            get { return this.copyrightStatementField; }
+            set { this.copyrightStatementField = value; }
+        }
+
         public string ROWSalesRightsType
         {
             get { return this.rowSalesRightsTypeField; }
@@ -383,6 +412,14 @@ namespace OnixData.Standard.Version3.Publishing
         {
             get { return this.shortSalesRightsField; }
             set { this.shortSalesRightsField = value; }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("copyrightstatement")]
+        public OnixCopyrightStatement[] copyrightstatement
+        {
+            get { return this.shortCopyrightStatementField; }
+            set { this.shortCopyrightStatementField = value; }
         }
 
         public string x456

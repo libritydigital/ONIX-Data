@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace OnixData.Standard.Version3
 {
@@ -12,6 +13,7 @@ namespace OnixData.Standard.Version3
 
         public const int CONST_SUBJ_SCHEME_BISAC_CAT_ID = 10;
         public const int CONST_SUBJ_SCHEME_REGION_ID    = 11;
+        public const int CONST_SUBJ_SCHEME_KEYWORDS     = 20;
 
         #endregion
 
@@ -103,6 +105,8 @@ namespace OnixData.Standard.Version3
             }
         }
 
+        public string[] SubjectHeadingText { get; set; }
+
         #endregion
 
         #region Short Tags
@@ -140,6 +144,13 @@ namespace OnixData.Standard.Version3
         {
             get { return SubjectCode; }
             set { SubjectCode = value; }
+        }
+
+        [XmlElement("b070")]
+        public string[] b070
+        {
+            get => SubjectHeadingText;
+            set => SubjectHeadingText = value;
         }
 
 
