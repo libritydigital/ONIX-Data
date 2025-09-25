@@ -8,6 +8,14 @@ namespace OnixData.Standard.Version3.Supply
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class OnixSupplyDetail
     {
+        #region Constants
+
+        public const string CONST_SUPPLY_DETAIL_PRODUCT_AVAILABILITY_CANCELLED = "01";
+        public const string CONST_SUPPLY_DETAIL_PRODUCT_AVAILABILITY_NOT_YET_AVAILABLE = "10";
+        public const string CONST_SUPPLY_DETAIL_PRODUCT_AVAILABILITY_AVAILABLE = "20";
+
+        #endregion
+
         public OnixSupplyDetail()
         {
             ProductAvailability = PackQuantity = UnpricedItemType = "";

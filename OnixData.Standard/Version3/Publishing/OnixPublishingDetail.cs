@@ -8,6 +8,31 @@ namespace OnixData.Standard.Version3.Publishing
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class OnixPublishingDetail
     {
+        #region Constants
+
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_UNSPECIFIED                     = "00";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_CANCELLED                       = "01";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_FORTHCOMING                     = "02";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_POSTPONED_INDEFINITELY          = "03";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_ACTIVE                          = "04";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_NO_LONGER_OUR_PRODUCT           = "05";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_OUT_OF_STOCK_INDEFINITELY       = "06";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_OUT_OF_PRINT                    = "07";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_INACTIVE                        = "08";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_UNKNOWN                         = "09";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_REMAINDERED                     = "10";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_WITHDRAWN_FROM_SALE             = "11";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_ACTIVE_BUT_NOT_SOLD_SEPARATELY  = "13";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_RECALLED                        = "15";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_TEMPORARILY_WITHDRAWN_FROM_SALE = "16";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_PERMANENTLY_WITHDRAWN_FROM_SALE = "17";
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_ACTIVE_BUT_NOT_SOLD_AS_SET      = "18";
+
+        [Obsolete("Deprecated, use code 15 (CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_RECALLED) instead")]
+        public const string CONST_PUBLISHING_DETAIL_PUBLISHING_STATUS_RECALLED_12 = "12";
+
+        #endregion
+
         public OnixPublishingDetail()
         {
             PublishingStatus = ROWSalesRightsType = "";
