@@ -24,6 +24,7 @@ namespace OnixData.Standard.Version3.Price
         public const int CONST_PRICE_TYPE_PROP_MISC_2      = 99;
 
         public const int CONST_PRICE_TYPE_QUALIFIER_CONSUMER = 5;
+        public const int CONST_PRICE_TYPE_QUALIFIER_PROMO = 8;
 
         public readonly int[] CONST_SOUGHT_RETAIL_PRICE_TYPES
             = {
@@ -71,6 +72,9 @@ namespace OnixData.Standard.Version3.Price
         private OnixDiscountCoded[] shortDiscountCodedField;
 
         private OnixTerritory territoryField;
+
+        private string validFromField;
+        private string validToField;
 
         #region Helper Methods
 
@@ -130,6 +134,18 @@ namespace OnixData.Standard.Version3.Price
         public bool HasViablePubDiscountCode()
         {
             return (OnixFirstViableDiscountCoded != null);
+        }
+
+        public string ValidFrom
+        {
+            get => validFromField;
+            set => validFromField = value;
+        }
+
+        public string ValidTo
+        {
+            get => validToField;
+            set => validToField = value;
         }
 
         public OnixDiscountCoded OnixFirstViableDiscountCoded
@@ -383,6 +399,17 @@ namespace OnixData.Standard.Version3.Price
             set => PriceConstraint = value;
         }
 
+        public string j161
+        {
+            get => validFromField;
+            set => validFromField = value;
+        }
+
+        public string j162
+        {
+            get => validToField;
+            set => validToField = value;
+        }
 
         #endregion
     }
